@@ -13,7 +13,7 @@ This Is A Powerfull FILE-STORE-BOT
     <img src="http://ForTheBadge.com/images/badges/made-with-python.svg" width ="250">
   </a>
  <a href="https://t.me/AKVMOVIEHUB">
-    <img src="https://github.com/Abhyudak/FILE-STORE-BOT/blob/main/resources/madebycodex-badge.svg" width="250">
+    <img src="https://github.com/Abhyudak/FILE-STORE-BOT/tree/main/resources/madebycodex-badge.svg" width="250">
   </a><br>
   <a href="https://t.me/AK_UPDATES_BOTZ">
 &nbsp;<img src="https://img.shields.io/badge/AK_UPDATES_CHANNEL-Channel-blue?style=flat-square&logo=telegram" width="130" height="18">&nbsp;
