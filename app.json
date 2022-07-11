@@ -7,7 +7,7 @@
     "file",
     "sharing"
   ],
-  "repository": "https://github.com/Abhyudkv/File-Sharing-Bot",
+  "repository": "https://github.com/Abhyudak/FILE-STORE-BOT",
   "logo": "https://telegra.ph/file/e745976f901c85480f81c.jpg",
   "env": {
     "TG_BOT_TOKEN": {
