@@ -13,6 +13,6 @@ This Is A Powerfull FILE-STORE-BOT
     <img src="http://ForTheBadge.com/images/badges/made-with-python.svg" width ="250">
   </a>
   <a href="https://t.me/Toxicboymx">
-     <img src="https://github.com/Abhyudak/FILE-STORE-BOT)/blob/main/resources/madebyAklucashood-badge.svg" width="250">
+     <img src="https://github.com/Abhyudak/FILE-STORE-BOT/blob/main/resources/madebyAklucashood-badge.svg" width="250">
   </a><br>
   <a href="https://t.me/Ak_updates_botz">
