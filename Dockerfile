@@ -1,12 +1,11 @@
-FROM python:3.10-slim-buster
 
-RUN apt update && apt upgrade -y
-RUN apt install git -y
-COPY requirements.txt /requirements.txt
 
-RUN cd /
-RUN pip3 install -U pip && pip3 install -U -r requirements.txt
-RUN mkdir /FILE-STORE-BOT
-WORKDIR /FILE-STORE-BOT
+FROM python:3.8-slim-buster
+WORKDIR /app
+
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
+
 COPY . .
+
 CMD python3 main.py
