@@ -1,7 +1,7 @@
 {
   "name": "AK-FILE-STORE-BOT",
   "description": "file sharing bot store posts and it can access by special links",
-  "stack": "heroku-22",
+  "stack": "container",
   "keywords": [
     "telegram",
     "file",
