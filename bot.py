@@ -1,57 +1,31 @@
-#(©)Toxicboymx
+import pyrogram
+from pyrogram import Client, filters
+from shazamapi import Shazam
 
-import pyromod.listen
-from pyrogram import Client
-import sys
+# Create a new Pyrogram client with your bot token
+app = Client(
+    "my_bot",
+    bot_token="your_bot_token_here"
+)
 
-from config import API_HASH, APP_ID, LOGGER, TG_BOT_TOKEN, TG_BOT_WORKERS, FORCE_SUB_CHANNEL, CHANNEL_ID
+# Define a command handler for the /song command
+@app.on_message(filters.command("song"))
+def send_song(client, message):
+    # Get the song name from the user message
+    song_name = message.text.split(" ", maxsplit=1)[1]
+    
+    # Search for the song using Shazam API
+    shazam = Shazam()
+    track = shazam.search(song_name)
+    
+    # Get the audio file of the song and send it to the user
+    audio_file = client.send_audio(
+        chat_id=message.chat.id,
+        audio=track.url,
+        title=track.title,
+        performer=track.subtitle
+    )
 
-class Bot(Client):
-    def __init__(self):
-        super().__init__(
-            "Bot",
-            api_hash=API_HASH,
-            api_id=APP_ID,
-            plugins={
-                "root": "plugins"
-            },
-            workers=TG_BOT_WORKERS,
-            bot_token=TG_BOT_TOKEN
-        )
-        self.LOGGER = LOGGER
+# Run the Pyrogram client
+app.run()
 
-    async def start(self):
-        await super().start()
-        usr_bot_me = await self.get_me()
-
-        if FORCE_SUB_CHANNEL:
-            try:
-                link = (await self.get_chat(FORCE_SUB_CHANNEL)).invite_link
-                if not link:
-                    await self.export_chat_invite_link(FORCE_SUB_CHANNEL)
-                    link = (await self.get_chat(FORCE_SUB_CHANNEL)).invite_link
-                self.invitelink = link
-            except Exception as a:
-                self.LOGGER(__name__).warning(a)
-                self.LOGGER(__name__).warning("Bot can't Export Invite link from Force Sub Channel!")
-                self.LOGGER(__name__).warning(f"Please Double check the FORCE_SUB_CHANNEL value and Make sure Bot is Admin in channel with Invite Users via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL}")
-                self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/AKVMOVIEHUB for support")
-                sys.exit()
-        try:
-            db_channel = await self.get_chat(CHANNEL_ID)
-            self.db_channel = db_channel
-            test = await self.send_message(chat_id = db_channel.id, text = "Test Message")
-            await test.delete()
-        except Exception as e:
-            self.LOGGER(__name__).warning(e)
-            self.LOGGER(__name__).warning(f"Make Sure bot is Admin in DB Channel, and Double check the CHANNEL_ID Value, Current Value {CHANNEL_ID}")
-            self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/AKVMOVIEHUB for support")
-            sys.exit()
-
-        self.set_parse_mode("html")
-        self.LOGGER(__name__).info(f"Bot Running..!\n\nCreated by AK 𝕏 BOTZ\nhttps://t.me/AKVMOVIEHUB")
-        self.username = usr_bot_me.username
-
-    async def stop(self, *args):
-        await super().stop()
-        self.LOGGER(__name__).info("Bot stopped.")
