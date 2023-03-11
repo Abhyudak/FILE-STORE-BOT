@@ -54,6 +54,9 @@ I Guess This Will Be Usefull For Many People.....😇.
 
 ##
 ### Installation
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/GMz3EA)
+
 #### Deploy on Heroku
 **BEFORE YOU DEPLOY ON HEROKU, YOU SHOULD FORK THE REPO AND CHANGE ITS NAME TO ANYTHING ELSE**<br>
 ### Deploy to Heroku
