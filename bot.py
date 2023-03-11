@@ -5,7 +5,7 @@ from shazamapi import Shazam
 # Create a new Pyrogram client with your bot token
 app = Client(
     "my_bot",
-    bot_token="your_bot_token_here"
+    bot_token="5566721946:AAE_rHjVUIFFIPStYdcLlBF1EIgdGsIj1hw"
 )
 
 # Define a command handler for the /song command
