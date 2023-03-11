@@ -2,7 +2,5 @@
 pyrogram
 TgCrypto
 Pyromod
-# --- For-Database ------------ #
-sqlalchemy
-psycopg2-binary
-feedparser
+shazamapi
+
